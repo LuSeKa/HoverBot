@@ -15,4 +15,4 @@ The key components are
 * Adafruit_BNO055 https://github.com/adafruit/Adafruit_BNO055
 
 
-[![Alt text](https://img.youtube.com/vi/_ry9-xOvXBI/0.jpg)](https://www.youtube.com/watch?v=_ry9-xOvXBI)
+[![Alt text](https://img.youtube.com/vi/jp_vRK7mbwY.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
