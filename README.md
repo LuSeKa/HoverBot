@@ -1,5 +1,5 @@
 # HoverBot
-Self-balancing robot using hoverboard hub motors
+Self-balancing robot using hoverboard hub motors.
 
 Arduino code for a radio controlled self-balancing vehicle.
 The key components are
