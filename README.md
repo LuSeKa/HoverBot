@@ -17,6 +17,7 @@ The key components are
 ## Control Scheme
 The ODrive is operated in current control mode. The current is computed from the pitch and pitching velocity to control balancing, from the throttle command to control the forward and bakcward velocity, and from the steering command and the yaw velocity to control the steering. The controller is tuned with five parameters listed in the config.h file.
 ![HoverBot_control](https://user-images.githubusercontent.com/8363989/56304750-14203600-613f-11e9-91f6-5e077f21d8e2.png)
+A problem of this control scheme is that the onboard controller does not get velocity feedback. If the vehicle goes too fast, the balance controller cannot compensate a forward fall anymore, and it will fall over eventually. The human at the sticks therefore needs to make sure that the velocity is kept sufficiently slow.
 
 ## Video
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
