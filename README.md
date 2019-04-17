@@ -14,5 +14,11 @@ The key components are
 * Adafruit_Sensor https://github.com/adafruit/Adafruit_Sensor
 * Adafruit_BNO055 https://github.com/adafruit/Adafruit_BNO055
 
+## Control Scheme
+The ODrive is operated in current control mode. The current is computed from the pitch and pitching velocity to control the balancing, from the throttle command to control the forward and bakcward velocita, and from the steering command and the yaw velocity to control the steering. The controlled is tuned with five parameters listed in the config.h file.
+![HoverBot_control](https://user-images.githubusercontent.com/8363989/56304463-72004e00-613e-11e9-9cee-79d4630fd2ad.png)
+
+
 
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
+
