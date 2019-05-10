@@ -54,7 +54,7 @@ The IMU only requires two wires for 5V power (red) and GND (black) from the brea
 ### RC receiver
 ![receiver_wiring](https://user-images.githubusercontent.com/8363989/57559358-b4a1f880-7381-11e9-810b-370e0001104c.JPG)
 
-The receiver is powered by 5V (blue) and GND (green) from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano. The pins used are 2 (orange), 3 (yellow) and 18 (green), and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
+The receiver is powered by 5V (blue) and GND (green) from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano. (see https://www.arduino.cc/reference/de/language/functions/external-interrupts/attachinterrupt/) The pins used are 2 (orange), 3 (yellow) and 18 (green), and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
 
 ## Video
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
