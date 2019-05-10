@@ -38,8 +38,14 @@ https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/10
 
 The ODrive powers the 5V power supply of all other components, so its GND and 5V rail are connected to a breadboard that acts as power distribution.
 
-The ODrive communicates with the Arduino via the serial port, or UART. The UART pins ar GPIO 1 and GPIO 2, as explained here:
+The ODrive communicates with the Arduino via the serial port, or UART. The UART pins ar GPIO 1 and GPIO 2, as explained here (GPIO 1 connects to the Arduino's RX, GPIO 2 to the Arduino's TX):
 https://docs.odriverobotics.com/interfaces#ports
+
+### IMU
+The IMU only requires two wires for 5V power and GND from the breadboard and two wires for the I2C connection to the Arduino (the IMU's and the Arduino's SDA and SCL are connected).
+
+### RC receiver
+The receiver is powered by 5V and GND from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano. The pins used are 2, 3 and 18, and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
 
 ## Video
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
