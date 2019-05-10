@@ -31,16 +31,16 @@ The following diagram roughly explains the data flow and types of electrical con
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
 
-It is powered from the battey via its DC clamps, and each motor's three phases (A,B,C) are connected to one of its motor outputs (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
+It is powered from the battey via its DC clamps (thick black and red cables on the right), and each motor's three phases (A,B,C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
 
 Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
 
-Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (often blue, yellow and green). A motor's hall sensors are connected to the the corresponding sensor inputs on the ODrive's J4 connector. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity, as is mentioned here:
+Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (often blue, yellow and green). A motor's hall sensors are connected using extension cables to the the corresponding sensor inputs (M0 and M1) on the ODrive's J4 connector. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity (insulated with hot glue), as is mentioned here:
 https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/1047/6
 
-The ODrive powers the 5V power supply of all other components, so its GND and 5V rail are connected to a breadboard that acts as power distribution.
+The ODrive powers the 5V power supply of all other components, so its GND (black cable on the J3 connector) and 5V (red cable on the J2 connector) are connected to a breadboard that acts as power distribution.
 
-The ODrive communicates with the Arduino via the serial port, or UART. The UART pins ar GPIO 1 and GPIO 2, as explained here (GPIO 1 connects to the Arduino's RX, GPIO 2 to the Arduino's TX):
+The ODrive communicates with the Arduino via the serial port, or UART. The UART pins ar GPIO 1 (yellow) and GPIO 2 (white), as explained here (GPIO 1 connects to the Arduino's RX, GPIO 2 to the Arduino's TX):
 https://docs.odriverobotics.com/interfaces#ports
 
 ### IMU
