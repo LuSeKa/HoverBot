@@ -35,7 +35,7 @@ The wiring connects the wheel motors and their hall sensors with the ODrive, the
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
 #### Power and motors
-It is powered from the battey via its DC clamps (thick black and red cables on the right), and each motor's three phases (A,B,C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
+It is powered from the battey via its DC clamps (thick black and red cables on the left), and each motor's three phases (A,B,C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
 #### Auxiliary resistor
 Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
 #### Hall sensors
@@ -49,7 +49,7 @@ https://docs.odriverobotics.com/interfaces#ports
 
 ### IMU
 ![IMU_wiring](https://user-images.githubusercontent.com/8363989/57559420-f894fd80-7381-11e9-9e10-169256ba9f3b.JPG)
-The IMU only requires two wires for 5V power (red) and GND (black) from the breadboard and two wires for the I2C connection to the Arduino, connecting the IMU's and the Arduino's SDA (white) and SCL (green). https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/pinouts
+The IMU only requires two wires for 5V power (red) and GND (black) from the breadboard and two wires for the I2C connection to the Arduino, connecting the IMU's and the Arduino's SDA (white) and SCL (left green). https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/pinouts
 
 ### RC receiver
 ![receiver_wiring](https://user-images.githubusercontent.com/8363989/57559358-b4a1f880-7381-11e9-810b-370e0001104c.JPG)
