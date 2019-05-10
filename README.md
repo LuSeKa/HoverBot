@@ -49,7 +49,7 @@ https://docs.odriverobotics.com/interfaces#ports
 
 ### IMU
 ![IMU_wiring](https://user-images.githubusercontent.com/8363989/57559420-f894fd80-7381-11e9-9e10-169256ba9f3b.JPG)
-The IMU only requires two wires for 5V power (red) and GND (black) from the breadboard and two wires for the I2C connection to the Arduino, connecting the IMU's and the Arduino's SDA (white) and SCL (green).
+The IMU only requires two wires for 5V power (red) and GND (black) from the breadboard and two wires for the I2C connection to the Arduino, connecting the IMU's and the Arduino's SDA (white) and SCL (green). https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/pinouts
 
 ### RC receiver
 ![receiver_wiring](https://user-images.githubusercontent.com/8363989/57559358-b4a1f880-7381-11e9-810b-370e0001104c.JPG)
