@@ -26,6 +26,8 @@ The following diagram roughly explains the data flow and types of electrical con
 ![HoverBot_wiring](https://user-images.githubusercontent.com/8363989/56580510-f5a0bb80-65d2-11e9-9292-611b99229bdf.png)
 
 ### ODrive
+![P1060952](https://user-images.githubusercontent.com/8363989/57559146-cc2cb180-7380-11e9-8a5b-ee74387d9bb0.JPG)
+
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
 
