@@ -25,6 +25,10 @@ A problem of this control scheme is that the onboard controller does not get vel
 The following diagram roughly explains the data flow and types of electrical connections.
 ![HoverBot_wiring](https://user-images.githubusercontent.com/8363989/56580510-f5a0bb80-65d2-11e9-9292-611b99229bdf.png)
 
+## Wiring
+![wiring_overview](https://user-images.githubusercontent.com/8363989/57559699-70175c80-7383-11e9-83e8-08cd853fea0c.JPG)
+The wiring connects the wheel motors and their hall sensors with the ODrive, the ODrive to the Arduino and the Arduino to the IMU (sitting on a breadboard) and to the RC receiver.
+
 ### ODrive
 ![ODrive_wiring](https://user-images.githubusercontent.com/8363989/57559385-d4392100-7381-11e9-80dc-377392724488.JPG)
 
