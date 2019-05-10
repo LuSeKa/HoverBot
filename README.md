@@ -14,6 +14,10 @@ The key components are
 * Adafruit_Sensor https://github.com/adafruit/Adafruit_Sensor
 * Adafruit_BNO055 https://github.com/adafruit/Adafruit_BNO055
 
+
+## Video
+[![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
+
 ## Control Scheme
 The ODrive is operated in current control mode. The current is computed by the Arduino from the pitch and pitching velocity to control balancing, from the throttle command to control the forward and backward velocity, and from the steering command and the yaw velocity to control the steering. The controller is tuned with five parameters listed in the config.h file.
 
@@ -44,7 +48,7 @@ https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/10
 #### 5V power
 The ODrive powers the 5V power supply of all other components, so its GND (black cable on the J3 connector) and 5V (red cable on the J2 connector) are connected to a breadboard that acts as power distribution.
 #### UART
-The ODrive communicates with the Arduino via the serial port, or UART. The UART pins ar GPIO 1 (yellow) and GPIO 2 (white), as explained here (GPIO 1 connects to the Arduino's RX, GPIO 2 to the Arduino's TX):
+The ODrive communicates with the Arduino via the serial port, or UART. The UART pins are GPIO 1 (yellow) and GPIO 2 (white), as explained here (GPIO 1 connects to the Arduino's RX, GPIO 2 to the Arduino's TX):
 https://docs.odriverobotics.com/interfaces#ports
 
 ### IMU
@@ -57,8 +61,6 @@ The IMU only requires two wires for 5V power (red) and GND (black) from the brea
 The receiver is powered by 5V (blue) and GND (green) from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano (see https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/). The pins used are 2 (orange), 3 (yellow) and 18 (green), and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
 
 ### Arduino
-Apart from all the connections already mentioned, the Arduino's USB port should be accessible for programming.
+The Arduino is powered from 5V (red) and GND (black) from the breadbaord. Apart from the connections already mentioned, the Arduino's USB port should be accessible for programming.
 
-## Video
-[![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
 
