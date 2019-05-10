@@ -34,16 +34,16 @@ The wiring connects the wheel motors and their hall sensors with the ODrive, the
 
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
-
+#### Power and motors
 It is powered from the battey via its DC clamps (thick black and red cables on the right), and each motor's three phases (A,B,C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
-
+#### Auxiliary resistor
 Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
-
+#### Hall sensors
 Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (often blue, yellow and green). A motor's hall sensors are connected using extension cables to the the corresponding sensor inputs (M0 and M1) on the ODrive's J4 connector. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity (insulated with hot glue), as is mentioned here:
 https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/1047/6
-
+#### 5V power
 The ODrive powers the 5V power supply of all other components, so its GND (black cable on the J3 connector) and 5V (red cable on the J2 connector) are connected to a breadboard that acts as power distribution.
-
+#### UART
 The ODrive communicates with the Arduino via the serial port, or UART. The UART pins ar GPIO 1 (yellow) and GPIO 2 (white), as explained here (GPIO 1 connects to the Arduino's RX, GPIO 2 to the Arduino's TX):
 https://docs.odriverobotics.com/interfaces#ports
 
@@ -55,6 +55,9 @@ The IMU only requires two wires for 5V power (red) and GND (black) from the brea
 ![receiver_wiring](https://user-images.githubusercontent.com/8363989/57559358-b4a1f880-7381-11e9-810b-370e0001104c.JPG)
 
 The receiver is powered by 5V (blue) and GND (green) from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano (see https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/). The pins used are 2 (orange), 3 (yellow) and 18 (green), and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
+
+### Arduino
+Apart from all the connections already mentioned, the Arduino's USB port should be accessible for programming.
 
 ## Video
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
