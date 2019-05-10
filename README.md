@@ -28,11 +28,16 @@ The following diagram roughly explains the data flow and types of electrical con
 ### ODrive
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
+
 It is powered from the battey via its DC clamps, and each motor's three phases (A,B,C) are connected to one of its motor outputs (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
+
 Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
+
 Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (ofen blue, yellow and green). A motor's hall sensors are connected to the its correspoinding sensor inputs. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity, as is mentioned here:
 https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/1047/6
+
 The ODrive powers the 5V power supply of all other components, so its GND and 5V rail are connected to a breadboard that acts as power distribution.
+
 The ODrive communicates with the Arduino via the serial port, or UART. The UART-pins ar GPIO 1 and GPIO 2 as explained here:
 https://docs.odriverobotics.com/interfaces#ports
 
