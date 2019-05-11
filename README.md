@@ -8,7 +8,7 @@ Self-balancing robot using hoverboard hub motors.
 4. [Control Scheme](#control)
 5. [Schematic](#schematic)
 6. [Wiring](#wiring)
-  1. [ODrive](#odrive)
+    1. [ODrive](#odrive)
 
 ## Key Components <a name="components"></a>
 * An Arduino Mega https://store.arduino.cc/mega-2560-r3. Using the Mega because the project needs three hardware interrupt pins to decode the RC receiver's PWM signals.
