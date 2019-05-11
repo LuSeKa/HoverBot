@@ -8,6 +8,7 @@ Self-balancing robot using hoverboard hub motors.
 4. [Control Scheme](#control)
 5. [Schematic](#schematic)
 6. [Wiring](#wiring)
+  1. [ODrive] (#odrive)
 
 ## Key Components <a name="components"></a>
 * An Arduino Mega https://store.arduino.cc/mega-2560-r3. Using the Mega because the project needs three hardware interrupt pins to decode the RC receiver's PWM signals.
@@ -42,7 +43,7 @@ The following diagram roughly explains the data flow and types of electrical con
 
 The wiring connects the wheel motors and their hall sensors with the ODrive, the ODrive to the Arduino and the Arduino to the IMU (sitting on a breadboard) and to the RC receiver.
 
-### ODrive
+### ODrive <a name="odrive"></a>
 ![ODrive_wiring](https://user-images.githubusercontent.com/8363989/57559385-d4392100-7381-11e9-80dc-377392724488.JPG)
 
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
