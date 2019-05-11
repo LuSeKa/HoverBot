@@ -31,6 +31,8 @@ The following diagram roughly explains the data flow and types of electrical con
 
 ## Wiring
 ![wiring_overview](https://user-images.githubusercontent.com/8363989/57559699-70175c80-7383-11e9-83e8-08cd853fea0c.JPG)
+![Wiring](https://user-images.githubusercontent.com/8363989/57575009-eaf37c80-7442-11e9-9ee3-52118415944d.png)
+
 The wiring connects the wheel motors and their hall sensors with the ODrive, the ODrive to the Arduino and the Arduino to the IMU (sitting on a breadboard) and to the RC receiver.
 
 ### ODrive
@@ -43,7 +45,7 @@ It is powered from the battey via its DC clamps (thick black and red cables on t
 #### Auxiliary resistor
 Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
 #### Hall sensors
-Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (often blue, yellow and green). A motor's hall sensors are connected using extension cables to the the corresponding sensor inputs (M0 and M1) on the ODrive's J4 connector. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity (insulated with hot glue), as is mentioned here:
+Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (often blue, yellow and green). A motor's hall sensors are connected using extension cables to the corresponding sensor inputs (M0 and M1) on the ODrive's J4 connector. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity (insulated with hot glue), as is mentioned here:
 https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/1047/6
 #### 5V power
 The ODrive powers the 5V power supply of all other components, so its GND (black cable on the J3 connector) and 5V (red cable on the J2 connector) are connected to a breadboard that acts as power distribution.
