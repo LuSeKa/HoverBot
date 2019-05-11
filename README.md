@@ -1,8 +1,10 @@
 # HoverBot
 Self-balancing robot using hoverboard hub motors.
 
-Arduino code for a radio controlled self-balancing vehicle.
-The key components are
+# Table of contents
+1. [Key Components](#components)
+
+## Key Components <a name="components"></a>
 * An Arduino Mega https://store.arduino.cc/mega-2560-r3. Using the Mega because the project needs three hardware interrupt pins to decode the RC receiver's PWM signals.
 * A Bosch BNO055 IMU https://www.adafruit.com/product/2472. Gives ready-to-use tilt angle estimation as well as gyro and accelerometer raw readings.
 * An ODrive motor controller (48V) https://odriverobotics.com/shop/odrive-v35. Enables very smooth current control for the two motors.
