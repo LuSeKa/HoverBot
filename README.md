@@ -1,7 +1,7 @@
 # HoverBot
 Self-balancing robot using hoverboard hub motors.
 
-# Table of contents
+## Table of contents
 1. [Key Components](#components)
 2. [External Dependencies](#dependencies)
 3. [Video](#video)
@@ -52,7 +52,7 @@ The wiring connects the wheel motors and their hall sensors with the ODrive, the
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
 #### Power and motors
-It is powered from the battey via its DC clamps (thick black and red cables on the left), and each motor's three phases (A,B,C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
+The ODrive is powered from the battery via its DC clamps (thick black and red cables on the left), and each motor's three phases (A, B, C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
 #### Auxiliary resistor
 Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
 #### Hall sensors
