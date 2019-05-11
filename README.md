@@ -3,6 +3,11 @@ Self-balancing robot using hoverboard hub motors.
 
 # Table of contents
 1. [Key Components](#components)
+2. [External Dependencies](#dependencies)
+3. [Video](#video)
+4. [Control Scheme](#control)
+5. [Schematic](#schematic)
+6. [Wiring](#wiring)
 
 ## Key Components <a name="components"></a>
 * An Arduino Mega https://store.arduino.cc/mega-2560-r3. Using the Mega because the project needs three hardware interrupt pins to decode the RC receiver's PWM signals.
@@ -10,28 +15,28 @@ Self-balancing robot using hoverboard hub motors.
 * An ODrive motor controller (48V) https://odriverobotics.com/shop/odrive-v35. Enables very smooth current control for the two motors.
 * Two hoverboard hub motors (easy to source from ebay). Very affordable, powerful and easy-to-use motors.
 
-## External Dependencies
+## External Dependencies <a name="dependencies"></a>
 * Metro https://github.com/LuSeKa/Metro
 * ODriveArduino https://github.com/madcowswe/ODrive
 * Adafruit_Sensor https://github.com/adafruit/Adafruit_Sensor
 * Adafruit_BNO055 https://github.com/adafruit/Adafruit_BNO055
 
 
-## Video
+## Video <a name="video"></a>
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
 
-## Control Scheme
+## Control Scheme <a name="control"></a>
 The ODrive is operated in current control mode. The current is computed by the Arduino from the pitch and pitching velocity to control balancing, from the throttle command to control the forward and backward velocity, and from the steering command and the yaw velocity to control the steering. The controller is tuned with five parameters listed in the config.h file.
 
 ![HoverBot_control](https://user-images.githubusercontent.com/8363989/56305285-4aaa8080-6140-11e9-976f-1688bf279cee.png)
 
 A problem of this control scheme is that the onboard controller does not get velocity feedback. If the vehicle goes too fast, the balance controller cannot compensate a forward fall anymore, and it will fall over eventually. The human at the sticks therefore needs to make sure that the velocity is kept sufficiently slow.
 
-## Schematic
+## Schematic <a name="schematic"></a>
 The following diagram roughly explains the data flow and types of electrical connections.
 ![HoverBot_wiring](https://user-images.githubusercontent.com/8363989/56580510-f5a0bb80-65d2-11e9-9292-611b99229bdf.png)
 
-## Wiring
+## Wiring <a name="wiring"></a>
 ![wiring_overview](https://user-images.githubusercontent.com/8363989/57559699-70175c80-7383-11e9-83e8-08cd853fea0c.JPG)
 ![Wiring](https://user-images.githubusercontent.com/8363989/57575009-eaf37c80-7442-11e9-9ee3-52118415944d.png)
 
