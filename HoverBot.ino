@@ -69,12 +69,19 @@ void motionController() {
   // IMU sampling
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   imu::Vector<3> gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-
+  // ODrive sampling
+  float vel = 0;
+  #if ENABLE_POSITIONCONTROL != 0
+  float vel_right = odrive.GetVelocity(0);
+  float vel_left = odrive.GetVelocity(1);
+  vel = (vel_right + vel_left)/2;
+  #endif
+  
   // balance controller
   float balanceControllerOutput = euler.z() * KP_BALANCE + gyro.x() * KD_BALANCE;
 
   // planar controllera (lateral position and steering angle)
-  float positionControllerOutput = KP_POSITION * (pwmDutyCycle_throttle - PWM_CENTER);
+  float positionControllerOutput = KP_POSITION * (pwmDutyCycle_throttle - PWM_CENTER) - KD_POSITION * vel;
   float steeringControllerOutput = KP_STEERING * (pwmDutyCycle_steering - PWM_CENTER) + gyro.z() * KD_ORIENTATION;  
 
   float controllerOutput_right = balanceControllerOutput + positionControllerOutput + steeringControllerOutput;
