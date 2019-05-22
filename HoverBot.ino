@@ -23,7 +23,6 @@ int pwmDutyCycle_mode = 0;
 void setup() {
   pinMode(LEDPIN, OUTPUT);  
   Serial2.begin(115200); // ODrive uses 115200 baud
-  odrive.SetControlModeCurrent(0);
   
   Serial.begin(115200); // Serial to PC
 
