@@ -23,7 +23,6 @@ int pwmDutyCycle_mode = 0;
 void setup() {
   pinMode(LEDPIN, OUTPUT);  
   Serial2.begin(115200); // ODrive uses 115200 baud
-  odrive.SetControlModeCurrent(0);
   
   Serial.begin(115200); // Serial to PC
 
@@ -72,9 +71,12 @@ void motionController() {
   // ODrive sampling
   float vel = 0;
   #if ENABLE_POSITIONCONTROL != 0
-  float vel_right = odrive.GetVelocity(0);
-  float vel_left = odrive.GetVelocity(1);
+  float vel_right = MOTORDIR_0 * odrive.GetVelocity(0);
+  float vel_left = MOTORDIR_1 * odrive.GetVelocity(1);
   vel = (vel_right + vel_left)/2;
+  //Serial.print(vel_right);
+  //Serial.print('\t');
+  //Serial.println(vel_left);
   #endif
   
   // balance controller
