@@ -22,9 +22,9 @@ int pwmDutyCycle_mode = 0;
 
 void setup() {
   pinMode(LEDPIN, OUTPUT);  
-  Serial2.begin(115200); // ODrive uses 115200 baud
+  Serial2.begin(BAUDRATE_ODRIVE); // ODrive uses 115200 baud
   
-  Serial.begin(115200); // Serial to PC
+  Serial.begin(BAUDRATE_PC); // Serial to PC
 
   // IMU
   if (!bno.begin())
