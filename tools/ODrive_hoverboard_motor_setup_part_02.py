@@ -34,7 +34,7 @@ time.sleep(encoder_calibration_time)
 if odrv0.axis0.encoder.is_ready == 1 and odrv0.axis1.encoder.is_ready == 1:
 	print("Encoder offset successfully calibrated! Proceeding...")
 else:
-	print("Could not encoder offset. Something is wrong.")
+	print("Could not calibrate encoder offset. Something is wrong.")
 	print("Have you ran the first script to set all parameters?")
 	print("If yes and the wiring looks good, just try again.\nExiting.")
 	quit()
