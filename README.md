@@ -41,6 +41,9 @@ The following diagram roughly explains the data flow and types of electrical con
 ![HoverBot_wiring](https://user-images.githubusercontent.com/8363989/56580510-f5a0bb80-65d2-11e9-9292-611b99229bdf.png)
 
 ## Wiring <a name="wiring"></a>
+
+Note that the wiring is *Highly Experimental* and just a *Proof-of-Concept*. A more rugged implementation is currently under way. 
+
 ![wiring_overview](https://user-images.githubusercontent.com/8363989/57559699-70175c80-7383-11e9-83e8-08cd853fea0c.JPG)
 ![Wiring](https://user-images.githubusercontent.com/8363989/57575009-eaf37c80-7442-11e9-9ee3-52118415944d.png)
 
