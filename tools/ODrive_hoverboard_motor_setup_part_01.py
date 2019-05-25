@@ -1,6 +1,7 @@
+# based on https://docs.odriverobotics.com/hoverboard.html
 import odrive
 
-# Paramters for HoverBot. Probalby no need to change.
+# Paramters for HoverBot. Probably no need to change.
 pole_pairs = 15
 resistance_calib_max_voltage = 4
 requested_current_range = 25
