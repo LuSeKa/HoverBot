@@ -1,4 +1,6 @@
 # Automated ODrive setup for HoverBot
+Once you installed all tools following these instructions https://docs.odriverobotics.com/#downloading-and-installing-tools these two scripts take care of setting up the ODrive for hoverbot (assuming the wiring of the motors and hall sensors is correct).
+
 All you need to do is 
 1. Wire up the ODrive and the motors
 2. Power up the ODrive
