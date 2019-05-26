@@ -21,7 +21,7 @@ if odrv0.axis0.motor.is_calibrated == 1 and odrv0.axis1.motor.is_calibrated == 1
 else:
 	print("Could not calibrate motor. Something is wrong.")
 	print("Have you ran the first script to set all parameters?")
-	print("If yes and the wiring looks good, just try again.\nExiting.")
+	print("If yes and the wiring looks good, reset the ODrive and try again.\nExiting.")
 	quit()
 print("Saving motor calibration")
 odrv0.axis0.motor.config.pre_calibrated = True
@@ -36,7 +36,7 @@ if odrv0.axis0.encoder.is_ready == 1 and odrv0.axis1.encoder.is_ready == 1:
 else:
 	print("Could not calibrate encoder offset. Something is wrong.")
 	print("Have you ran the first script to set all parameters?")
-	print("If yes and the wiring looks good, just try again.\nExiting.")
+	print("If yes and the wiring looks good, reset the ODrive and try again.\nExiting.")
 	quit()
 print("Saving encoder offset calibration")	
 odrv0.axis0.encoder.config.pre_calibrated = True
