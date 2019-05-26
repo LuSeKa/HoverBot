@@ -7,4 +7,5 @@ All you need to do is
 3. Make sure both motors are ABSOLUTELY FREE TO TURN
 4. Connect the ODrive to your computer
 5. Run the first script ODrive_hoverboard_motor_setup_part_01.py
-6. Run the second script ODrive_hoverboard_motor_setup_part_02.py
+6. Run the second script ODrive_hoverboard_motor_setup_part_02.py (or run the motor specific scripts if you want to calibrate the motors separately)
+
