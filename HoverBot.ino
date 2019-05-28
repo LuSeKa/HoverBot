@@ -7,6 +7,7 @@
 #include <ODriveArduino.h>
 
 int motorsActive = 0; // motor state
+bool tilt_limit_exceeded = false; // motor desired state
 
 Adafruit_BNO055 bno = Adafruit_BNO055(); // instantiate IMU
 ODriveArduino odrive(Serial2); // instantiate ODrive
@@ -55,7 +56,7 @@ void controlTask() {
 
 void activationTask() {
   if (activationMetro.check()) {
-    modeSwitch(pwmDutyCycle_mode > ENGAGE_THRESHOLD);
+    modeSwitch(pwmDutyCycle_mode > ENGAGE_THRESHOLD && !tilt_limit_exceeded);
   }
 }
 
@@ -68,6 +69,13 @@ void motionController() {
   // IMU sampling
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   imu::Vector<3> gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
+
+  if (abs(euler.z()) > TILT_LIMIT){
+    tilt_limit_exceeded = true;
+  }
+  else{
+    tilt_limit_exceeded = false;
+  }
 
   // balance controller
   float balanceControllerOutput = euler.z() * KP_BALANCE + gyro.x() * KD_BALANCE;
