@@ -8,7 +8,8 @@ requested_current_range = 25
 current_control_bandwidth = 100
 cpr = pole_pairs * 6
 encoder_bandwidth = 100
-vel_limit = 1000
+vel_limit = 5000
+current_limit = 5
 
 print("Searching for ODrive...")
 odrv0 = odrive.find_any()
@@ -40,6 +41,9 @@ odrv0.axis1.encoder.config.bandwidth = encoder_bandwidth
 print("Setting velocity limit to {}".format(vel_limit))
 odrv0.axis0.controller.config.vel_limit = vel_limit
 odrv0.axis1.controller.config.vel_limit = vel_limit
+print("Setting current limit to {}".format(current_limit))
+odrv0.axis0.motor.config.current_lim = current_limit
+odrv0.axis1.motor.config.current_lim = current_limit
 print("Configuring for current control")
 odrv0.axis0.controller.config.control_mode = 1 #CTRL_MODE_CURRENT_CONTROL
 odrv0.axis1.controller.config.control_mode = 1 #CTRL_MODE_CURRENT_CONTROL
