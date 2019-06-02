@@ -1,7 +1,7 @@
 # HoverBot
 Self-balancing robot using hoverboard hub motors.
 
-![HoverBot_Slide](https://user-images.githubusercontent.com/8363989/58768190-699d8e80-8597-11e9-9edf-a16c85a09e93.gif)
+![HoverBot_Slide](https://user-images.githubusercontent.com/8363989/58768238-5e972e00-8598-11e9-9f62-96d945c9039d.gif)
 
 ## Table of contents
 1. [Key Components](#components)
