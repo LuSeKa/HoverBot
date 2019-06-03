@@ -6,7 +6,7 @@ Self-balancing robot using hoverboard hub motors.
 ## Table of contents
 1. [Key Components](#components)
 2. [External Dependencies](#dependencies)
-3. [Video](#video)
+3. [Videos](#video)
 4. [Control Scheme](#control)
 5. [Schematic](#schematic)
 6. [Wiring](#wiring)
@@ -28,8 +28,11 @@ Self-balancing robot using hoverboard hub motors.
 * Adafruit_BNO055 https://github.com/adafruit/Adafruit_BNO055
 
 
-## Video <a name="video"></a>
+## Videos <a name="video"></a>
+[![YouTube Video](https://img.youtube.com/vi/QNOgWHhilm4/0.jpg)](https://www.youtube.com/watch?v=QNOgWHhilm4)
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
+
+
 
 ## Control Scheme <a name="control"></a>
 The ODrive is operated in current control mode. The current is computed by the Arduino from the pitch and pitching velocity to control balancing, from the throttle command to control the forward and backward velocity, and from the steering command and the yaw velocity to control the steering. The controller is tuned with five parameters listed in the config.h file.
