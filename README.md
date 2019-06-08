@@ -86,5 +86,5 @@ The receiver is powered by 5V (blue) and GND (green) from the breadboard and eac
 The Arduino is powered from 5V (red) and GND (black) from the breadbaord. Apart from the connections already mentioned, the Arduino's USB port should be accessible for programming.
 
 ## Press <a name="press"></a>
-* [IEEE Spectrum Video Friday](https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-agility-robotics-humanoid-robot-digit-stroll-downtown) (June 07 2019)
+* [IEEE Spectrum Video Friday](https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-agility-robotics-humanoid-robot-digit-stroll-downtown) (07 June 2019)
 
