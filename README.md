@@ -15,6 +15,7 @@ Rugged radio-controlled self-balancing robot using hoverboard hub motors.
     3. [RC Receiver](#receiver)
     4. [Arduino](#arduino)
 7. [Press](#press)
+8. [Additional Documentation](#additional)
 
 ## Key Components <a name="components"></a>
 * An Arduino Mega https://store.arduino.cc/mega-2560-r3. Using the Mega because the project needs three hardware interrupt pins to decode the RC receiver's PWM signals.
@@ -87,4 +88,7 @@ The Arduino is powered from 5V (red) and GND (black) from the breadbaord. Apart 
 
 ## Press <a name="press"></a>
 * [IEEE Spectrum Video Friday](https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-agility-robotics-humanoid-robot-digit-stroll-downtown) (07 June 2019)
+
+## Additional Docs <a name="additional"></a>
+* [How To HoverBot](https://docs.google.com/document/d/1BMKzhPN70OgQfNl87zCoNQgiD5hnJ96jCFjzUalukxU/edit?ts=5ce60720#)
 
