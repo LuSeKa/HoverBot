@@ -91,4 +91,5 @@ The Arduino is powered from 5V (red) and GND (black) from the breadbaord. Apart 
 
 ## Additional Docs <a name="additional"></a>
 * [How To HoverBot](https://docs.google.com/document/d/1BMKzhPN70OgQfNl87zCoNQgiD5hnJ96jCFjzUalukxU/edit?ts=5ce60720#)
+* [ODrive Forum](https://discourse.odriverobotics.com/t/hoverbot-self-balancing-vehicle-with-hoverboard-wheels/2249)
 
