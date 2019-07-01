@@ -88,6 +88,7 @@ The Arduino is powered from 5V (red) and GND (black) from the breadbaord. Apart 
 
 ## Press <a name="press"></a>
 * [IEEE Spectrum Video Friday](https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-agility-robotics-humanoid-robot-digit-stroll-downtown) (07 June 2019)
+* [Weekly Robotics #45](https://weeklyrobotics.com/weekly-robotics-45) (30 June 2019)
 
 ## Additional Docs <a name="additional"></a>
 * [How To HoverBot](https://docs.google.com/document/d/1BMKzhPN70OgQfNl87zCoNQgiD5hnJ96jCFjzUalukxU/edit?ts=5ce60720#)
