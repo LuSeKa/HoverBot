@@ -49,9 +49,8 @@ The following diagram roughly explains the data flow and types of electrical con
 
 ## Wiring <a name="wiring"></a>
 
-Note that the wiring is *Highly Experimental* and just a *Proof-of-Concept*. A more rugged implementation is currently under way. 
-
-![wiring_overview](https://user-images.githubusercontent.com/8363989/57559699-70175c80-7383-11e9-83e8-08cd853fea0c.JPG)
+Note that the wiring is *Highly Experimental* and just a *Proof-of-Concept*.
+![wiring_overview](https://user-images.githubusercontent.com/8363989/63175235-e6db8a00-c043-11e9-94f4-1455133f9a84.jpg)
 ![Wiring](https://user-images.githubusercontent.com/8363989/57575009-eaf37c80-7442-11e9-9ee3-52118415944d.png)
 
 The wiring connects the wheel motors and their hall sensors with the ODrive, the ODrive to the Arduino and the Arduino to the IMU (sitting on a breadboard) and to the RC receiver.
@@ -75,13 +74,13 @@ The ODrive communicates with the Arduino via the serial port, or UART. The UART 
 https://docs.odriverobotics.com/interfaces#ports
 
 ### IMU <a name="imu"></a>
-![IMU_wiring](https://user-images.githubusercontent.com/8363989/57559420-f894fd80-7381-11e9-9e10-169256ba9f3b.JPG)
+![IMU_wiring](https://user-images.githubusercontent.com/8363989/63175451-55204c80-c044-11e9-8dce-5f3f22a49105.jpg)
 The IMU only requires two wires for 5V power (red) and GND (black) from the breadboard and two wires for the I2C connection to the Arduino, connecting the IMU's and the Arduino's SDA (white) and SCL (left green). https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/pinouts
 
 ### RC Receiver <a name="receiver"></a>
-![receiver_wiring](https://user-images.githubusercontent.com/8363989/57559358-b4a1f880-7381-11e9-810b-370e0001104c.JPG)
+![receiver_wiring](https://user-images.githubusercontent.com/8363989/63175588-9add1500-c044-11e9-9f2a-7891c3631831.jpg)
 
-The receiver is powered by 5V (blue) and GND (green) from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano (see https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/). The pins used are 2 (orange), 3 (yellow) and 18 (green), and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
+The receiver is powered by 5V (red) and GND (blue) from the breadboard and each of the PWM signal outputs (three for the HoverBot) are connected to one of the Arduino's inputs that are capable of hardware interrupts. The fact that three hardware interrupt pins are needed is the reason why HoverBot uses an Arduino Mega rather than a smaller and cheaper Uno or Nano (see https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/). The pins used are 2 (orange), 3 (yellow) and 18 (green), and their channel assignment is set in the first lines of the config.h file: https://github.com/LuSeKa/HoverBot/blob/master/config.h
 
 ### Arduino <a name="arduino"></a>
 The Arduino is powered from 5V (red) and GND (black) from the breadbaord. Apart from the connections already mentioned, the Arduino's USB port should be accessible for programming.
