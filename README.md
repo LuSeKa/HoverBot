@@ -56,14 +56,14 @@ Note that the wiring is *Highly Experimental* and just a *Proof-of-Concept*.
 The wiring connects the wheel motors and their hall sensors with the ODrive, the ODrive to the Arduino and the Arduino to the IMU (sitting on a breadboard) and to the RC receiver.
 
 ### ODrive <a name="odrive"></a>
-![ODrive_wiring](https://user-images.githubusercontent.com/8363989/57559385-d4392100-7381-11e9-80dc-377392724488.JPG)
+![ODrive_wiring](https://user-images.githubusercontent.com/8363989/63176564-72eeb100-c046-11e9-86bc-d82bbdcc2178.jpg)
 
 The wiring of the ODrive is explained on the ODrive website (that has very nice docs overall!):
 https://docs.odriverobotics.com/#wiring-up-the-odrive
 #### Power and motors
 The ODrive is powered from the battery via its DC clamps (thick black and red cables on the left), and each motor's three phases (A, B, C, blue, yellow and green) are connected to one of its motor output clamps (M0 and M1). The order in which the motor wires are connected does not matter, the ODrive figures this out by itself during calibration.
 #### Auxiliary resistor
-Since the HoverBot is running on batteries, no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery).
+If HoverBot is powered from batteries without built-in battery management system (PMS), no auxiliary breaking resistor is required (the ODrive dumps recuperated energy into the battery). If the batteries have a PMS (such as the ones usually found in a hoverboard), using the auxiliary resistor might prevent overvoltage errors.
 #### Hall sensors
 Each hoverboard motor comes with hall sensors that tell the ODrive when to power which of the three phases. Each hall sensor has five wires: Two for power (5V, usually red and GND, usually black) and three for signal (often blue, yellow and green). A motor's hall sensors are connected using extension cables to the corresponding sensor inputs (M0 and M1) on the ODrive's J4 connector. The three signal lines are connected to inputs A, B and Z where the order again does not matter. Note that it might be necessary (depending on the version of the ODrive) to add some a 22nF capacitor between each of the three signals and ground for signal integrity (insulated with hot glue), as is mentioned here:
 https://discourse.odriverobotics.com/t/encoder-error-error-illegal-hall-state/1047/6
