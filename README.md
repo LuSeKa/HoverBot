@@ -24,16 +24,19 @@ Rugged radio-controlled self-balancing robot using hoverboard hub motors.
 * Two hoverboard hub motors (easy to source from ebay). Very affordable, powerful and easy-to-use motors.
 
 ## External Dependencies <a name="dependencies"></a>
+# Arduino
 * Metro https://github.com/LuSeKa/Metro
 * ODriveArduino https://github.com/madcowswe/ODrive
 * Adafruit_Sensor https://github.com/adafruit/Adafruit_Sensor
 * Adafruit_BNO055 https://github.com/adafruit/Adafruit_BNO055
 
+# Python
+* odrive https://pypi.org/project/odrive
+
 
 ## Videos <a name="video"></a>
 [![YouTube Video](https://img.youtube.com/vi/QNOgWHhilm4/0.jpg)](https://www.youtube.com/watch?v=QNOgWHhilm4)
 [![YouTube Video](https://img.youtube.com/vi/jp_vRK7mbwY/0.jpg)](https://www.youtube.com/watch?v=jp_vRK7mbwY)
-
 
 
 ## Control Scheme <a name="control"></a>
