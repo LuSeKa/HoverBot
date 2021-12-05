@@ -1,31 +1,33 @@
+#if !USE_PPM
 // Interrupt callbacks to measure the pwm duty cycle
 
-void decodePwm_1() {
+void decodeSteeringPwm() {
   static unsigned long riseTime = micros(); // initialize riseTime
-  if (digitalRead(PWM_CHANNEL_1) == 1) { // the signal has risen
+  if (digitalRead(PWM_PIN_STEERING) == 1) { // the signal has risen
     riseTime = micros(); // save the rise time
   }
   else { // the signal has fallen
-    pwmDutyCycle_steering = micros() - riseTime; // compute the duration of the high pulse
+    steeringCommand_us = micros() - riseTime; // compute the duration of the high pulse
   }
 }
 
-void decodePwm_2() {
+void decodeThrottlePwm() {
   static unsigned long riseTime = micros(); // initialize riseTime
-  if (digitalRead(PWM_CHANNEL_2) == 1) { // the signal has risen
+  if (digitalRead(PWM_PIN_THROTTLE) == 1) { // the signal has risen
     riseTime = micros(); // save the rise time
   }
   else { // the signal has fallen
-    pwmDutyCycle_throttle = micros() - riseTime; // compute the duration of the high pulse
+    throttleCommand_us = micros() - riseTime; // compute the duration of the high pulse
   }
 }
 
-void decodePwm_3() {
+void decodeModePwm() {
   static unsigned long riseTime = micros(); // initialize riseTime
-  if (digitalRead(PWM_CHANNEL_3) == 1) { // the signal has risen
+  if (digitalRead(PWM_PIN_MODE) == 1) { // the signal has risen
     riseTime = micros(); // save the rise time
   }
   else { // the signal has fallen
-    pwmDutyCycle_mode = micros() - riseTime; // compute the duration of the high pulse
+    modeCommand_us = micros() - riseTime; // compute the duration of the high pulse
   }
 }
+#endif // !USE_PPM
