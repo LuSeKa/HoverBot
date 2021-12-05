@@ -68,13 +68,13 @@ void modeSwitch(int mode_desired) {
   }
   else {
     if (mode_desired == 1) {
-      int requested_state = ODriveArduino::AXIS_STATE_CLOSED_LOOP_CONTROL;
+      int requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL;
       Serial.println("Engaging motors");
       odrive.run_state(0, requested_state, false);
       odrive.run_state(1, requested_state, false);
     }
     else if (mode_desired == 0) {
-      int requested_state = ODriveArduino::AXIS_STATE_IDLE;
+      int requested_state = AXIS_STATE_IDLE;
       Serial.println("Disengaging motors");
       odrive.run_state(0, requested_state, false);
       odrive.run_state(1, requested_state, false);
