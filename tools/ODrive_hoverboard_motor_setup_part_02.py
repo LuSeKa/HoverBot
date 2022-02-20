@@ -5,7 +5,7 @@ import time
 motor_calibration_time = 6
 encoder_calibration_time = 12
 
-input("Make sure that the wheels are free to turn. Don't get hurt!\nPress ENTER to proceed.")
+#input("Make sure that the wheels are free to turn. Don't get hurt!\nPress ENTER to proceed.")
 
 print("Searching for ODrive...")
 odrv0 = odrive.find_any()

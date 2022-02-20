@@ -30,7 +30,7 @@ void setup() {
   // IMU
   if (!bno.begin())
   {
-    Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
+    Serial.println("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
     while (1); // halt for safety
   }
   delay(1000);
@@ -84,8 +84,8 @@ void motionController() {
   float positionControllerOutput = KP_POSITION * (pwmDutyCycle_throttle - PWM_CENTER);
   float steeringControllerOutput = KP_STEERING * (pwmDutyCycle_steering - PWM_CENTER) + gyro.z() * KD_ORIENTATION;  
 
-  float controllerOutput_right = balanceControllerOutput + positionControllerOutput + steeringControllerOutput;
-  float controllerOutput_left  = balanceControllerOutput + positionControllerOutput - steeringControllerOutput;
+  float controllerOutput_right = balanceControllerOutput - positionControllerOutput - steeringControllerOutput;
+  float controllerOutput_left  = balanceControllerOutput - positionControllerOutput + steeringControllerOutput;
   
   odrive.SetCurrent(0, MOTORDIR_0 * controllerOutput_right);
   odrive.SetCurrent(1, MOTORDIR_1 * controllerOutput_left);
