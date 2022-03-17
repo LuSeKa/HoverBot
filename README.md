@@ -1,3 +1,5 @@
+***This repo is deprecated. This project now lives here (as of March 2022): https://github.com/CharlestonRobotics/ChIMP***
+
 # HoverBot
 Rugged radio-controlled self-balancing robot using hoverboard hub motors.
 
