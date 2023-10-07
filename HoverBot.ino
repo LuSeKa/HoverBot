@@ -5,6 +5,9 @@
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
 #include <ODriveArduino.h>
+#if USE_PPM
+#include <PPMReader.h> // https://github.com/Nikkilae/PPM-reader
+#endif // USE_PPM
 
 int motorsActive = 0; // motor state
 bool tilt_limit_exceeded = false; // motor desired state
@@ -17,29 +20,36 @@ Metro controllerMetro = Metro(CONTROLLER_INTERVAL);
 Metro activationMetro = Metro(ACTIVATION_INTERVAL);
 
 // PWM decoder variables
-int pwmDutyCycle_throttle = 0;
-int pwmDutyCycle_steering = 0;
-int pwmDutyCycle_mode = 0;
+int steeringCommand_us = 0;
+int throttleCommand_us = 0;
+int modeCommand_us = 0;
+
+#if USE_PPM
+// Initialize a PPMReader
+PPMReader ppmDecoder(PPM_PIN, NUM_PPM_CHANNELS);
+#endif // USE_PPM
 
 void setup() {
-  pinMode(LEDPIN, OUTPUT);  
+  pinMode(LEDPIN, OUTPUT);
   Serial2.begin(BAUDRATE_ODRIVE); // ODrive uses 115200 baud
-  
+
   Serial.begin(BAUDRATE_PC); // Serial to PC
 
   // IMU
   if (!bno.begin())
   {
-    Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
+    Serial.print("No BNO found. Check wiring or I2C address!");
     while (1); // halt for safety
   }
   delay(1000);
   bno.setExtCrystalUse(true);
 
+#if !USE_PPM
   // pwm decoder interrupts
-  attachInterrupt(digitalPinToInterrupt(PWM_CHANNEL_1), decodePwm_1, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(PWM_CHANNEL_2), decodePwm_2, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(PWM_CHANNEL_3), decodePwm_3, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PWM_PIN_STEERING), decodeSteeringPwm, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PWM_PIN_THROTTLE), decodeThrottlePwm, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PWM_PIN_MODE), decodeModePwm, CHANGE);
+#endif // !USE_PPM
 }
 
 void loop() {
@@ -56,7 +66,12 @@ void controlTask() {
 
 void activationTask() {
   if (activationMetro.check()) {
-    modeSwitch(pwmDutyCycle_mode > ENGAGE_THRESHOLD && !tilt_limit_exceeded);
+#if USE_PPM
+    // Get command from PPM signal
+    modeCommand_us = ppmDecoder.latestValidChannelValue(PPM_MODE_CHANNEL, ENGAGE_THRESHOLD);
+#endif // USE_PPM
+    // If using PWM, command will be updated in the ISR
+    modeSwitch(modeCommand_us > ENGAGE_THRESHOLD && !tilt_limit_exceeded);
   }
 }
 
@@ -70,23 +85,29 @@ void motionController() {
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   imu::Vector<3> gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
 
-  if (abs(euler.z()) > TILT_LIMIT){
+  if (abs(euler.z()) > TILT_LIMIT) {
     tilt_limit_exceeded = true;
   }
-  else{
+  else {
     tilt_limit_exceeded = false;
   }
 
   // balance controller
   float balanceControllerOutput = euler.z() * KP_BALANCE + gyro.x() * KD_BALANCE;
 
-  // planar controllera (lateral position and steering angle)
-  float positionControllerOutput = KP_POSITION * (pwmDutyCycle_throttle - PWM_CENTER);
-  float steeringControllerOutput = KP_STEERING * (pwmDutyCycle_steering - PWM_CENTER) + gyro.z() * KD_ORIENTATION;  
+  // planar controllers (lateral position and steering angle)
+#if USE_PPM
+  // Get commands from PPM signal
+  throttleCommand_us = ppmDecoder.latestValidChannelValue(PPM_THROTTLE_CHANNEL, PWM_CENTER);
+  steeringCommand_us = ppmDecoder.latestValidChannelValue(PPM_STEERING_CHANNEL, PWM_CENTER);
+#endif // USE_PPM
+  // If using PWM, commands will be updated in the ISRs
+  float positionControllerOutput = KP_POSITION * (throttleCommand_us - PWM_CENTER);
+  float steeringControllerOutput = KP_STEERING * (steeringCommand_us - PWM_CENTER) + gyro.z() * KD_ORIENTATION;
 
   float controllerOutput_right = balanceControllerOutput + positionControllerOutput + steeringControllerOutput;
   float controllerOutput_left  = balanceControllerOutput + positionControllerOutput - steeringControllerOutput;
-  
+
   odrive.SetCurrent(0, MOTORDIR_0 * controllerOutput_right);
   odrive.SetCurrent(1, MOTORDIR_1 * controllerOutput_left);
 }
